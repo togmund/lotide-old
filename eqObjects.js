@@ -31,11 +31,9 @@ const findKeyByValue = function (objectToScan, valueToFind) {
 };
 
 const eqObjects = function (objectOne, objectTwo) {
+  if (Object.keys(objectOne).length !== Object.keys(objectTwo).length) return false;
   for (let key in objectOne) {
     if (!findKeyByValue(objectTwo, objectOne[key])) return false;
-  }
-  for (let key in objectTwo) {
-    if (!findKeyByValue(objectOne, objectTwo[key])) return false;
   }
   return true;
 };

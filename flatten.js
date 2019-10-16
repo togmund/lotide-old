@@ -24,17 +24,23 @@ const assertArraysEqual = function (actual, expected) {
 
 const flatten = function (args) {
   let input = args;
-  // console.log("input is:", input);
-  return input.map(function (inputElement) {
-    // console.log("inputElement is:", inputElement);
-    if (Array.isArray(inputElement)) {
+  console.log("input is:", input);
+  let temparr =[];
+  input.map(function (inputElement) {
+    console.log("inputElement is:", inputElement);
+    if (Array.isArray(inputElement)) { 
       inputElement.forEach(nestedElement => {
-        // console.log("nestedElement is:", nestedElement);
-        return nestedElement;
+        console.log("nestedElement is:", nestedElement);
+        temparr.push(nestedElement);
+        //return nestedElement;
       })
+    }else{
+      temparr.push(inputElement);
+      return inputElement;
     }
-    return inputElement;
+   
   });
+  return temparr;
 };
 
 console.log("\n");
