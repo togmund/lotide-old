@@ -8,16 +8,13 @@ const assertEqual = function (actual, expected) {
 // FUNCTION IMPLEMENTATION
 const letterPosition = function (stringToCount) {
   const results = {};
-  for (let i = 0; i < stringToCount; i++) {
-    console.log(stringToCount[i], i);
+  for (let i = 0; i < stringToCount.length; i++) {
+    if (results[stringToCount[i]]) {
+      results[stringToCount[i]].push(i);
+    } else {
+      results[stringToCount[i]] = [i];
+    }
   }
-  // for (const letter of stringToCount) {
-  //   if (results[letter]) {
-  //     results[letter]++;
-  //   } else {
-  //     results[letter] = 1;
-  //   }
-  // }
   delete results[' '];
   return results;
 }
@@ -38,4 +35,4 @@ const letterPosition = function (stringToCount) {
 // }
 
 console.log(letterPosition("lighthouse in the house"));
-console.log(letterPosition("Antidisestablishmentarianism"));
+console.log(letterPosition("antidisestablishmentarianism"));
